@@ -1,6 +1,6 @@
 package week01
 
-val ticketPriceMap = linkedMapOf(
+val ticketPrices = linkedMapOf(
     5 to 15,
     60 to 30,
     100 to 20
@@ -24,8 +24,8 @@ fun ticketPrice(customerAge: Int, isMonday: Boolean = false): Int {
     }
 
     var customerPrice = 0
-    for ((ageCutLine, ticketPrice) in ticketPriceMap) {
-        if (customerAge <= ageCutLine) {
+    for ((ageLimit, ticketPrice) in ticketPrices) {
+        if (customerAge <= ageLimit) {
             customerPrice = ticketPrice
             break
         }
@@ -33,3 +33,5 @@ fun ticketPrice(customerAge: Int, isMonday: Boolean = false): Int {
 
     return if (customerPrice == 30 && isMonday) customerPrice - 5 else customerPrice
 }
+
+
